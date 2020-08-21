@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Toast
+import com.example.hello3.ApiClient.buildService
 import kotlinx.android.synthetic.main.activity_registration.*
 import okhttp3.Callback
 import okhttp3.MultipartBody
@@ -45,7 +46,7 @@ class registration : AppCompatActivity() {
     }
 
     fun registerUser(requestBody: RequestBody) {
-        var apiClient = ApiClient.buildService(ApiInterface::class.java)
+        var apiClient = buildService(ApiInterface::class.java)
         var registrationCall = apiClient.registerStudent(requestBody).also {
             it.enqueue(object : Callback<RegistrationResponse> {
 

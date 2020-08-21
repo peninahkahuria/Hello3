@@ -11,6 +11,7 @@ import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.example.hello3.ApiClient.buildService as buildService1
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun registerUser(requestBody: RequestBody) {
-        var apiClient = ApiClient.buildService(ApiInterface::class.java)
+        var apiClient = buildService1(service = ApiInterface::class.java)
         var registrationCall = apiClient.registerStudent(requestBody).also {
             it.enqueue(object : Callback<RegistrationResponse> {
 

@@ -13,7 +13,7 @@ object ApiClient {
         .client(client)
         .build()
 
-    fun <T> buildService(service: Class<T>): T {
+    fun <T> buildService(service: Class<ApiInterface>): ApiInterface {
         return retrofit.create(service)
     }
 }
